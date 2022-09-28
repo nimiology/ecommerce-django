@@ -48,4 +48,5 @@ urlpatterns = [
     path('category/', include('category.urls')),
     path('comment/', include('comment.urls')),
     path('picture/', include('picture.urls')),
+    path('', include('product.urls'))
 ]
