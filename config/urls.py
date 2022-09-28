@@ -21,6 +21,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
 from config import settings
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Snippets API",
@@ -36,10 +37,15 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # djoser
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 
+    # documents
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 
-    #apps
+    # apps
     path('category/', include('category.urls')),
     path('comment/', include('comment.urls')),
+    path('picture/', include('picture.urls')),
 ]
