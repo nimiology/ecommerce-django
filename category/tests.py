@@ -14,7 +14,7 @@ def get_user_token(username, admin=False):
     return user, f'Bearer {refresh.access_token}'
 
 
-class CategoryTest(APITestCase):
+class CategoryAPITest(APITestCase):
     def setUp(self):
         self.user, self.token = get_user_token('Jane', admin=True)
         self.category = Category.objects.create(name='test1')
@@ -70,6 +70,7 @@ class CategoryTest(APITestCase):
             reverse(f'{urls.app_name}:{urls.urlpatterns[1].name}', kwargs={'pk': self.category.pk}),
             data={'name': 'test3'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
     def test_delete_category(self):
         response = self.client.delete(
             reverse(f'{urls.app_name}:{urls.urlpatterns[1].name}', kwargs={'pk': self.category.pk}), )

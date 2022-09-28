@@ -41,4 +41,5 @@ urlpatterns = [
 
     #apps
     path('category/', include('category.urls')),
+    path('comment/', include('comment.urls')),
 ]

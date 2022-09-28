@@ -10,5 +10,4 @@ class Comment(models.Model):
     text = models.TextField()
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='childrens')
     created_date = models.DateTimeField(auto_now_add=True)
-    upvote = models.ManyToManyField(get_user_model(), blank=True, related_name='comment_upvotes')
-    downvote = models.ManyToManyField(get_user_model(), blank=True, related_name='comment_downvotes')
+    likes = models.ManyToManyField(get_user_model(), blank=True, related_name='comment_upvotes')
