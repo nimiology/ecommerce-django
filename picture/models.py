@@ -1,7 +1,7 @@
 from django.db import models
 
 from product.models import Product
-from users.utils import upload_file
+from picture.utils import upload_file
 
 
 class ProductPicture(models.Model):

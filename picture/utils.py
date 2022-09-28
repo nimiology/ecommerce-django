@@ -2,6 +2,8 @@ import os
 import random
 import string
 
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, DestroyAPIView
+
 
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
